@@ -33,11 +33,11 @@ fun LoginScreen(navController: NavHostController,
             .fillMaxSize()
             .padding(paddingValues),
             contentAlignment = Alignment.Center) {
-            
+
             SignInWithGoogleButton(onSuccess = { user ->
                  val email = user.email ?: error("email not found!")
 
-                viewModel.onLoggedIn(email , navController)
+                viewModel.onLoggedIn(email =email , navController =navController)
 
                /* Toast.makeText(context, "Sign in as $email}" ,
                     Toast.LENGTH_SHORT).show()

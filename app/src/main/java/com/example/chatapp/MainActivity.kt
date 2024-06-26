@@ -17,9 +17,15 @@ import com.example.chatapp.feature.login.LoginScreen
 import com.example.chatapp.feature.splash.SplashScreen
 import com.example.chatapp.navigation.NavGraph
 import com.example.chatapp.ui.theme.ChatAppTheme
+import com.streamliners.base.BaseActivity
+import com.streamliners.base.uiEvent.UiEventDialogs
 
 
-class MainActivity : ComponentActivity() {
+class MainActivity : BaseActivity() {
+
+
+    override var buildType: String = BuildConfig.BUILD_TYPE
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -28,6 +34,7 @@ class MainActivity : ComponentActivity() {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     val navController = rememberNavController()
                     NavGraph(navController = navController)
+                    UiEventDialogs()
                 }
             }
         }

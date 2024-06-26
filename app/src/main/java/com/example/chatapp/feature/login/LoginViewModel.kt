@@ -14,26 +14,18 @@ class LoginViewModel @Inject constructor(
     private  val localRepo: LocalRepo
     ): ViewModel() {
 
-        fun onLoggedIn(email: String, navController: NavHostController) {
+    fun onLoggedIn(email: String, navController: NavHostController) {
+        viewModelScope.launch {
+            val user = userRepo.getUserWithEmail(email)
 
-            viewModelScope.launch {
-                val user = userRepo.getUserWithEmail(email)
-
-                if (user != null){
-                    //saved in local and navigate to home screen
-
-                    localRepo.onLoggedIn()
-                    navController.navigate(Routes.Home.routes)
-
+            if (user != null) {
+                // Save in local and navigate to home screen
+                localRepo.onLoggedIn()
+                navController.navigate(Routes.Home.routes)
+            } else {
+                // Navigate to edit profile screen with email parameter
+                navController.navigate("${Routes.EditProfileScreen.routes}?email=$email")
             }
-                else{
-
-                    //navigate to edit profile screen
-                    navController.navigate(Routes.EditProfileScreen.routes)
-
-                }
-            }
-
         }
-
+    }
 }

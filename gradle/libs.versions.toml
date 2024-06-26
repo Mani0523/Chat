@@ -29,6 +29,8 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 compose-android = { module = "com.github.The-Streamliners.DroidLibs:compose-android", version.ref = "composeAndroid" }
 compose-pickers = { module = "com.github.The-Streamliners.DroidLibs:pickers", version.ref = "composeAndroid" }
+compose-base = { module = "com.github.The-Streamliners.DroidLibs:base", version.ref = "composeAndroid" }
+compose-utils = { module = "com.github.The-Streamliners.DroidLibs:utils", version.ref = "composeAndroid" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-database-ktx = { module = "com.google.firebase:firebase-database-ktx" }
