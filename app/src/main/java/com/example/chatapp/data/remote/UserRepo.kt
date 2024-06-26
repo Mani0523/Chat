@@ -16,6 +16,15 @@ class UserRepo {
 
     }
 
+    suspend fun getAllUsers(): List<User>{
+
+     return   Firebase.firestore.usersColl()
+            .get()
+            .await()
+            .toObjects(User::class.java)
+
+    }
+
     suspend fun getUserWithEmail(email : String): User? {
 
       return  Firebase.firestore.usersColl()

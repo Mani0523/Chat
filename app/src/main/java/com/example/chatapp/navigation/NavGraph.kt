@@ -1,17 +1,16 @@
 package com.example.chatapp.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import androidx.navigation.navDeepLink
 import com.example.chatapp.MainActivity
 import com.example.chatapp.feature.editProfile.EditProfileScreen
 import com.example.chatapp.feature.home.HomeScreen
 import com.example.chatapp.feature.login.LoginScreen
+import com.example.chatapp.feature.newChat.NewChatScreen
 import com.example.chatapp.feature.splash.SplashScreen
 import com.streamliners.base.ext.koinBaseViewModel
 import com.streamliners.pickers.date.showDatePickerDialog
@@ -70,7 +69,13 @@ fun MainActivity.NavGraph(navController: NavHostController) {
             )
         }
         composable(Routes.Home.routes) {
-            HomeScreen()
+            HomeScreen(navController)
         }
+
+
+        composable(Routes.NewChat.routes) {
+            NewChatScreen(viewModel = koinBaseViewModel(), navController = navController )
+        }
+
     }
 }
